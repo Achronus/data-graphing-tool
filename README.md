@@ -8,7 +8,7 @@ It is designed for users with no prior programming knowledge but understand ML c
 
 ![DGT Pipeline](/assets/imgs/dgt-pipeline.png)
 
-<center style="font-style: italic;">Figure 1. Data Graphing Tool User Process</center>
+<p style="text-align: center; font-style: italic;">Figure 1. Data Graphing Tool User Process</p>
 
 ## File Structure
 
