@@ -1,0 +1,19 @@
+{
+    "plugins": [
+        "plugins.demo"
+    ],
+    "models": [
+        {
+            "type": "LinReg",
+            "name": "linear"
+        },
+        {
+            "type": "PolyReg",
+            "name": "polynomial"
+        },
+        {
+            "type": "demo",
+            "name": "Test"
+        }
+    ]
+}
