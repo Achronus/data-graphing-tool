@@ -7,7 +7,6 @@ The Data Graphing Tool is a web application that providers users with a Graphica
 It is designed for users with no prior programming knowledge but understand ML concepts or do not have time to write an algorithm and need an efficient way to visualise and understand their data.
 
 ![DGT Pipeline](/assets/imgs/dgt-pipeline.png)
-
 _Figure 1. Data Graphing Tool User Process_
 
 ## File Structure
@@ -20,6 +19,9 @@ The tool uses a combination of protocols and the factory pattern to provide modu
 |   +-- imgs
 |       +-- ...
 +-- core
+|   +-- logic
+|       +-- data_handler.py
+|       +-- data_retriever.py
 |   +-- models
 |       +-- _model.py
 |       +-- regression.py
@@ -32,9 +34,11 @@ The tool uses a combination of protocols and the factory pattern to provide modu
 +-- README.md
 ```
 
-### Aspects Of Note
+### Structure Details
 
 The `core` folder contains the main aspects of the tool, including the base models, the model protocol template, and other crucial functionality.
+
+The `logic` folder contains the backend functionality of the program that interfaces with the frontend.
 
 The `plugins` folder houses additional models that act as extensions to the application.
 
