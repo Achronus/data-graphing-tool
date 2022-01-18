@@ -1,6 +1,7 @@
 import json
 
 from core import loader, factory
+from core.logic.data_retriever import DataRetriever
 from core.models.regression import LinearRegression, PolynomialRegression
 
 def get_json_data(filename: str):
@@ -19,6 +20,9 @@ def main() -> None:
     # Read data and load plugins
     data = get_json_data("map")
     loader.load_plugins(data["plugins"])
+
+    # Initialise variables
+    dr = DataRetriever(data["delimiters"], data["md_methods"])
 
     # Create models
     models = [factory.create(model) for model in data['models']]

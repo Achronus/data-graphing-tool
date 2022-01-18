@@ -4,15 +4,9 @@ from core.logic.data_handler import HandleMissingData
 
 class DataRetriever:
     """Manages the storage and retrieval of data from a file."""
-    def __init__(self) -> None:
-        self.delimiters = {
-            "," : ',', 
-            "|": '|', 
-            ";": ';', 
-            "#": '#',
-            "tab": '\t', 
-            "space": ' '
-        }
+    def __init__(self, delimiters: list, methods: list) -> None:
+        self.delimiters = delimiters
+        self.missing_data_methods = methods
 
     def _select_data(self, cols: list) -> None:
         """Helper function to select and stores specified columns of data."""
@@ -49,7 +43,7 @@ class DataRetriever:
         handle_missing = HandleMissingData(self.data)
         
         # TODO: Select desired method
-        
+        # Use eval() to call a function by its name
 
         # Update dataset
         self.data = handle_missing.data

@@ -7,18 +7,12 @@ class HandleMissingData:
     """Manages the functionality for handling the missing data methods."""
     def __init__(self, data: pd.DataFrame):
         self.data = data.copy()
-        self.methods = {
-            "listwise_deletion": self.listwise_removal,
-            "mean" : self.replace_with_mean,
-            "median": self.replace_with_median,
-            "mode": self.replace_with_mode,
-            "random": self.replace_with_random,
-            # "linear_interpolation": ,
-            # "multiple": ,
-            # "linear_regression": ,
-            # "logistic_regression": ,
-            "zero": self.replace_with_zeros
-        }
+
+        # TODO: additional methods required
+        # 1. linear_interpolation
+        # 2. multiple
+        # 3. linear_regression
+        # 4. logistic_regression
 
     def _use_imputer(self, strategy: str, value = None) -> None:
         """Helper function to replace values using an imputer."""
@@ -34,10 +28,6 @@ class HandleMissingData:
         that has one or more missing values. Returns an updated dataframe."""
         self.data.dropna(inplace=True)
         return self.data
-
-    def replace_with_zeros(self):
-        """Replaces all NaN values in a dataframe with zeros."""
-        self.data = self.data.fillna(0)
 
     def replace_with_mean(self):
         """Replaces all NaN values in the dataframe with the columns mean."""
@@ -56,3 +46,7 @@ class HandleMissingData:
         for col in self.data.columns:
             choice = np.random.choice(self.data[self.data[col].isna() == False][col])
             self.data[col].fillna(choice, inplace=True)
+
+    def replace_with_zeros(self):
+        """Replaces all NaN values in a dataframe with zeros."""
+        self.data = self.data.fillna(0)

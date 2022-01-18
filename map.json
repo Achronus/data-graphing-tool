@@ -15,5 +15,57 @@
             "type": "demo",
             "name": "Test"
         }
+    ],
+    "md_methods": [
+        {
+            "type": "listwise_deletion",
+            "func": "listwise_removal"
+        },
+        {
+            "type": "mean",
+            "func": "replace_with_mean"
+        },
+        {
+            "type": "median",
+            "func": "replace_with_median"
+        },
+        {
+            "type": "mode",
+            "func": "replace_with_mode"
+        },
+        {
+            "type": "random",
+            "func": "replace_with_random"
+        },
+        {
+            "type": "zero",
+            "func": "replace_with_zeros"
+        }
+    ],
+    "delimiters": [
+        {
+            "name": ",",
+            "character:": ","
+        },
+        {
+            "name": "|",
+            "character:": "|"
+        },
+        {
+            "name": ";",
+            "character:": ";"
+        },
+        {
+            "name": "#",
+            "character:": "#"
+        },
+        {
+            "name": "tab",
+            "character:": "\t"
+        },
+        {
+            "name": "space",
+            "character:": " "
+        }
     ]
 }
