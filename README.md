@@ -44,4 +44,4 @@ The `plugins` folder houses additional models that act as extensions to the appl
 
 The `app.py` file acts as the starting point of the program.
 
-The `map.json` file provides the main attribute logic for each model (including plugin models).
+The `map.json` file provides the main attribute logic for each model (including plugin models). Additionally, provides helper attributes for other components of the application such as missing data methods and valid CSV file delimiters.
