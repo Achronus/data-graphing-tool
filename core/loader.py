@@ -16,3 +16,7 @@ def load_plugins(plugins: list[str]) -> None:
     for name in plugins:
         plugin = import_module(name)
         plugin.initialize()
+
+def dict_list_to_lists(dict_list: list[dict]) -> list[list]:
+    """Converts a list of dictionaries to a list of lists."""
+    return [list(items) for items in zip(*[d.values() for d in dict_list])]

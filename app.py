@@ -22,7 +22,10 @@ def main() -> None:
     loader.load_plugins(data["plugins"])
 
     # Initialise variables
-    dr = DataRetriever(data["delimiters"], data["md_methods"])
+    dr = DataRetriever(
+        delimiters=loader.dict_list_to_lists(data["delimiters"]), 
+        md_methods=loader.dict_list_to_lists(data["md_methods"])
+    )
 
     # Create models
     models = [factory.create(model) for model in data['models']]
