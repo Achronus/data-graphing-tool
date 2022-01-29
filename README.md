@@ -11,7 +11,7 @@ _Figure 1. Data Graphing Tool User Process_
 
 ## File Structure
 
-The tool uses a combination of protocols and the factory pattern to provide modularity in its design. It starts with two base algorithms, Linear and Polynomial regression, and incorporates additional models (ML algorithms) via the plugins folder. The file structure used for the tool is outlined below.
+The tool uses a combination of abstract classes and the factory pattern to provide modularity in its design. It starts with two base algorithms, Linear and Polynomial regression, and incorporates additional models (ML algorithms) via the plugins folder. The file structure used for the tool is outlined below.
 
 ```text
 .
@@ -36,7 +36,7 @@ The tool uses a combination of protocols and the factory pattern to provide modu
 
 ### Structure Details
 
-The `core` folder contains the main aspects of the tool, including the base models, the model protocol template, and other crucial functionality.
+The `core` folder contains the main aspects of the tool, including the base models, the model template, and other crucial functionality.
 
 The `logic` folder contains the backend functionality of the program that interfaces with the frontend.
 
