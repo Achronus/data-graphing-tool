@@ -42,7 +42,7 @@ class DataRetriever:
 
     def replace_missing(self, method: str = "mean") -> pd.DataFrame:
         """Replaces missing values using specified method."""
-        handle_missing = HandleMissingData(self.data.copy())
+        handle_missing = HandleMissingData(self._start_data.copy())
         
         # Check for valid method
         if method in self.valid_md_methods:
@@ -53,7 +53,8 @@ class DataRetriever:
             eval(replace_method)
 
             # Return dataset
-            return handle_missing.data
+            self.data = handle_missing.data
+            return self.data
         
         else:
             raise InvalidMissingDataMethod(method, self.valid_md_methods)
