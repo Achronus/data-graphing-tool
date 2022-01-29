@@ -58,10 +58,14 @@ class DataRetriever:
         else:
             raise InvalidMissingDataMethod(method, self.valid_md_methods)
 
-    def save_data_to_system(self, data: pd.DataFrame, filename: str, no_index: bool = False, **kwargs) -> None:
+    def save_data(self, data: pd.DataFrame, filename: str, no_index: bool = False, **kwargs) -> None:
         """Saves the data as a CSV file onto the users system. Uses Pandas 'to_csv' method and accepts its additional parameters for custom functionality."""
         if no_index:
             data.to_csv(filename, sep=self.selected_delimiter, index=False, index_label=False, **kwargs)
             return
 
         data.to_csv(filename, sep=self.selected_delimiter, **kwargs)
+
+    def get_stats(self, data: pd.DataFrame, decimal_place: int = 3) -> None:
+        """Gets the statistics of a given dataset, rounding them to a given decimal place, and removing trailing zeros. Stores results in class variable (self.stats)."""
+        self.stats = data.describe().round(decimal_place)

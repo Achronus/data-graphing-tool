@@ -30,6 +30,7 @@ def main() -> None:
     # Create models
     models = [factory.create(model) for model in data['models']]
 
+    # Test code
     for model in models:
         print(model, end="\n\t")
         model.load_data()
