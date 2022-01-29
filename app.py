@@ -32,7 +32,7 @@ def main() -> None:
 
     for model in models:
         print(model, end="\n\t")
-        model.test()
+        model.load_data()
 
 if __name__ == "__main__":
     main()

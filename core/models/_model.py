@@ -1,9 +1,23 @@
-from abc import abstractmethod
-from typing import Protocol
+from abc import ABC, abstractmethod
 
-class Model(Protocol):
-    """Basic representation of a model interface."""
+class BaseModel(ABC):
+    """Basic representation of a model."""
     @abstractmethod
-    def test(self) -> None:
-        """Prints a string."""
-        ...
+    def load_data(self) -> None:
+        """Loads the data into the model."""
+        pass
+
+    @abstractmethod
+    def build(self) -> None:
+        """Creates the model."""
+        pass
+
+    @abstractmethod
+    def train(self) -> None:
+        """Trains the model."""
+        pass
+
+    @abstractmethod
+    def evaluate(self) -> None:
+        """Evaluates the model."""
+        pass
