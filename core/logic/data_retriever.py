@@ -52,7 +52,7 @@ class DataRetriever:
             replace_method = 'handle_missing.' + self.func_names[idx] + '()'
             eval(replace_method)
 
-            # Return dataset
+            # Return and store updated dataset
             self.data = handle_missing.data
             return self.data
         

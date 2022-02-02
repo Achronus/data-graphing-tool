@@ -1,12 +1,8 @@
 from abc import ABC, abstractmethod
+import pandas as pd
 
 class BaseModel(ABC):
     """Basic representation of a model."""
-    @abstractmethod
-    def load_data(self) -> None:
-        """Loads the data into the model."""
-        pass
-
     @abstractmethod
     def build(self) -> None:
         """Creates the model."""
@@ -21,3 +17,8 @@ class BaseModel(ABC):
     def evaluate(self) -> None:
         """Evaluates the model."""
         pass
+
+    def fit(self, x: pd.DataFrame, y: pd.DataFrame) -> None:
+        """Fits the data to the model by storing them as class variables."""
+        self.x = x
+        self.y = y

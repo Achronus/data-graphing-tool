@@ -6,13 +6,9 @@ from core.models._model import BaseModel
 class LinearRegression(BaseModel):
     name: str
 
-    def load_data(self) -> None:
-        """Loads the data into the model."""
-        print("Test 1")
-
     def build(self) -> None:
         """Creates the model."""
-        pass
+        print("Test build")
 
     def train(self) -> None:
         """Trains the model."""
@@ -26,13 +22,9 @@ class LinearRegression(BaseModel):
 class PolynomialRegression(BaseModel):
     name: str
 
-    def load_data(self) -> None:
-        """Loads the data into the model."""
-        print("Test 2")
-
     def build(self) -> None:
         """Creates the model."""
-        pass
+        print("Test build")
 
     def train(self) -> None:
         """Trains the model."""
