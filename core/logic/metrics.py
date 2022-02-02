@@ -9,9 +9,17 @@ class RegressionMetrics:
         self.y_pred = y_pred.to_numpy()
         self.N: int = self.y_true.size
 
+    def _rss(self) -> float:
+        """Helper function for calculating the residual sum of squares."""
+        return (np.square(self.y_true - self.y_pred)).sum()
+
+    def _tss(self) -> float:
+        """Helper function for calculating the total sum of squares error."""
+        return (np.square(self.y_true - self.y_true.mean())).sum()
+
     def mse(self) -> float:
         """Calculates the mean squared error."""
-        return (np.square(self.y_true - self.y_pred)).mean()
+        return self._rss() / self.N
 
     def rmse(self) -> float:
         """Calculates the root mean squared error."""
@@ -21,18 +29,14 @@ class RegressionMetrics:
         """Calculates the mean absolute error."""
         return (np.absolute(self.y_true - self.y_pred)).mean()
 
-    def _tss(self) -> float:
-        """Calculates the total sum of squares error."""
-        return np.sum((self.y_true - self.y_true.mean()) ** 2)
-
     def r_squared(self) -> float:
         """Calculates the R-Squared error."""
-        return 1 - (self.mse() / self._tss())
+        return 1 - (self._rss() / self._tss())
 
     def adjusted_r_squared(self, num_preds: int) -> float:
         """
         Calculates the adjusted R-Squared error. 
-        num_preds = X.shape[1]
+        num_preds = X.shape[1] (number of independent variables)
         """
         numerator: float = (1 - self.r_squared()) * (self.N - 1)
         denominator: float = self.N - num_preds - 1
